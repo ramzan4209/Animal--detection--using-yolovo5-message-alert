@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wildlife Corridor Monitor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Wildlife Corridor Monitor</h1>
+    <p>Upload or capture a camera image to detect humans, domestic animals and wildlife.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="buttons">
+        <label class="btn">
+          Take photo
+          <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden>
+        </label>
+        <label class="btn secondary">
+          Upload image
+          <input type="file" id="fileInput" accept="image/jpeg,image/png" hidden>
+        </label>
+      </div>
+
+      <img id="preview" alt="Preview" hidden>
+
+      <button id="analyzeBtn" class="btn analyze" disabled>Analyze image</button>
+      <p id="status"></p>
+    </section>
+
+    <section id="results" class="card" hidden>
+      <h2>Detection result</h2>
+      <img id="annotatedImg" alt="Annotated result">
+
+      <div class="counts">
+        <div class="count human"><span id="cHuman">0</span>Humans</div>
+        <div class="count domestic"><span id="cDomestic">0</span>Domestic</div>
+        <div class="count wild"><span id="cWild">0</span>Wildlife</div>
+      </div>
+
+      <h3>Detected objects</h3>
+      <ul id="detList"></ul>
+
+      <h3>AI cross-check</h3>
+      <div id="aiBox"></div>
+
+      <h3>Alerts sent</h3>
+      <div id="alertsBox"></div>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
